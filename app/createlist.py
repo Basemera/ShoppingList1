@@ -1,18 +1,20 @@
-from flask import Flask, render_template, request
+from wtforms import Form, BooleanField, StringField, PasswordField, validators
 app = Flask(__name__)
 
-@app.route('/')
+class RegistrationForm(Form):
+    itemname = StringField('Itemname', [validators.Length(min=4)])
+    Price = StringField('Price', [validators.Length(min=6, max=35)])
+    Currency = StringField('Currency', [validators.Length(max=20)
+
+@app.route('/createlist', methods = ['GET', 'POST'])
 def createlist():
-    return render_template('createlist.html')
-
-@app.route('/users',methods = ['POST', 'GET'])
-def veiwitems():
-    if request.method == 'POST':
-        item = request.form
-        
-        return render_template("items.html", result = item)
-        
-
-
+    form = RegistrationForm(request.form)
+    if request.method == 'POST' and form.validate():
+        item = Item(form.itemname.data, form.price, form.currency.data)
+        flash('Thanks for adding an item')
+        return redirect(url_for('items'))
+    return render_template('createlist.html', form=form)
 if __name__ == '__main__':
-   app.run(debug = True)
+    app.debug = True
+    app.run()
+    app.run(debug= True)

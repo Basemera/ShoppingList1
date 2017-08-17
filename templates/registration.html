@@ -7,11 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h>Sign up</h>
-    <form action = '/users' method = "POST">
-        <p>UserName: <input type = "text" name = "name">
-                <p>Password: <input type = "password" name = "password">
-        <p><input type = "submit" value = submit /></p>
-     </form> 
+        {% from "formhelper.html" import render_field %}
+        <form method=post>
+          <dl>
+            {{ render_field(form.itemname) }}
+            {{ render_field(form.price) }}
+            {{ render_field(form.currency) }}
+          </dl>
+          <p><input type=submit value=Register>
+        </form>
+    
 </body>
 </html>
