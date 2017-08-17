@@ -1,5 +1,5 @@
-from flask import Flask, session, redirect, url_for, request, render_template, app
-from wtforms import Form, BooleanField, StringField, PasswordField, validators, flash
+from flask import Flask, session, redirect, url_for, request, render_template, app, flash
+from wtforms import Form, BooleanField, StringField, PasswordField, validators
 
 app = Flask(__name__)
 

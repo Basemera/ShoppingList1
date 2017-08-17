@@ -1,1 +1,14 @@
 language: python
+deploy:
+  provider: heroku
+  app: <app name>  
+api_key:
+    secure: <35bd0c4b-f3ef-4c45-b725-792909e2e6ee>
+    python:
+  - "3.6.2"
+
+# command to install dependencies
+install: "pip install -r requirements.txt"
+
+# command to run tests
+script: python
