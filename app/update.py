@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, app
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route('/update' methods = "POST")
+@app.route('/update' methods=['GET', 'POST'])
 def deleteitem():
     if request.method == 'POST':
         del dict[key]
