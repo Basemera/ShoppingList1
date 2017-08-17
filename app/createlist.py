@@ -14,6 +14,10 @@ def createlist():
         flash('Thanks for adding an item')
         return redirect(url_for('items'))
     return render_template('createlist.html', form=form)
+def veiwlist():
+    if the request.method == 'GET':
+       item = Item(form.itemname.data, form.price, form.currency.data)
+       return redirect(url_for('items')) 
 if __name__ == '__main__':
     app.debug = True
     app.run()

@@ -1,11 +1,21 @@
-<html>
-        <body>
-            <h> Please input your items here</h>
-        
-           <form action = "http://localhost:5000/items" method = "POST">
-              <p>Enter item <input type = "text" name = "item">
-              <p><input type = "submit" value = "submit" /></p>
-           </form>
-           
-        </body>
-     </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        {% from "formhelper.html" import render_field %}
+        <form method=post>
+          <dl>
+            {{ render_field(form.itemname) }}
+            {{ render_field(form.price) }}
+            {{ render_field(form.currency) }}
+          </dl>
+          <p><input type=submit value=Add>
+        </form>
+    
+</body>
+</html>
